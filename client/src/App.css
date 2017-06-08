@@ -1,0 +1,61 @@
+.appHeader {
+  background-color: #1da1f2;
+  color: #f1fbfc;
+  font-size: 40px;
+  border-bottom: 3px solid #e4f3fe;
+}
+
+.login_wrapper {
+  height: 100vh;
+  width: 100vw;
+  background: url('./img/stream.jpg');
+  padding-top: 120px;
+}
+
+.login_window {
+  height: 150px;
+  width: 400px;
+  padding-top: 40px;
+  text-align: center;
+  margin: auto;
+  background-color: rgba(234, 240, 251, 0.8);
+}
+
+.retweeter {
+  color: #8a8a8a;
+}
+
+.profileInfo {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  line-height: 1;
+}
+
+.welcome {
+  font-size: 14px;
+}
+
+.tweetBox {
+  overflow-y: scroll;
+  height: 535px;
+}
+
+
+a:link {
+    color: #010136;
+}
+
+a:visited {
+    color: #010136;
+}
+
+a:hover {
+    color: #010136;
+}
+
+a:active {
+    color: #010136;
+}
