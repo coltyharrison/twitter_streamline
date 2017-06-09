@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../App.css';
-import { Button, Icon, Item, Sidebar, Modal, Header, Loader, Dimmer, Segment } from 'semantic-ui-react';
+import { Button, Icon, Item, Sidebar, Modal, Header } from 'semantic-ui-react';
 import axios from 'axios';
 
 //component that renders all the incoming tweets
@@ -111,44 +111,43 @@ class TweetBox extends Component {
           retweeted: tweet.retweeted,
           key: tweet.id
         };
-        return (
-          <Item key={content.key}>
-            <Item.Image size="mini" src={content.avatar} />
-            <Item.Content>
-              <Item.Header>{content.author}</Item.Header>
-              <Item.Meta>
-                <span className='retweeter'>{content.retweeter}</span>
-              </Item.Meta>
-              <Item.Description>{content.text}</Item.Description>
-              <Item.Extra>
-                <Button compact size="mini" color="pink" basic={!content.favorited} icon onClick={() => this.favoriteOrDestroy(tweet, content.favorited)}>
-                  <Icon name='heart' />
+      return (
+        <Item key={content.key}>
+          <Item.Image size="mini" src={content.avatar} />
+          <Item.Content>
+            <Item.Header>{content.author}</Item.Header>
+            <Item.Meta>
+              <span className='retweeter'>{content.retweeter}</span>
+            </Item.Meta>
+            <Item.Description>{content.text}</Item.Description>
+            <Item.Extra>
+              <Button compact size="mini" color="pink" basic={!content.favorited} icon onClick={() => this.favoriteOrDestroy(tweet, content.favorited)}>
+                <Icon name='heart' />
+              </Button>
+              <Modal
+              trigger={
+                <Button compact size="mini" color="blue" basic={!content.retweeted} icon onClick={() => this.retweet(tweet)}>
+                  <Icon name='retweet' />
                 </Button>
-                <Modal
-                trigger={
-                  <Button compact size="mini" color="blue" basic={!content.retweeted} icon onClick={() => this.retweet(tweet)}>
-                    <Icon name='retweet' />
-                  </Button>
-                }
-                open={this.state.modalOpen}
-                onClose={this.handleClose}
-                basic
-                size='small'>
-                <Header icon='checkmark' content='Sucess!' />
-                <Modal.Content>
-                  <h3>Tweet was successfuly retweeed.</h3>
-                </Modal.Content>
-                <Modal.Actions>
-                  <Button color='green' onClick={this.handleClose} inverted>
-                    OK
-                  </Button>
-                </Modal.Actions>
-              </Modal>
-              </Item.Extra>
-            </Item.Content>
-          </Item>
-        )
-      }
+              }
+              open={this.state.modalOpen}
+              onClose={this.handleClose}
+              basic
+              size='small'>
+              <Header icon='checkmark' content='Sucess!' />
+              <Modal.Content>
+                <h3>Tweet was successfuly retweeed.</h3>
+              </Modal.Content>
+              <Modal.Actions>
+                <Button color='green' onClick={this.handleClose} inverted>
+                  OK
+                </Button>
+              </Modal.Actions>
+            </Modal>
+            </Item.Extra>
+          </Item.Content>
+        </Item>
+      )
     })
     return (
       <Sidebar.Pusher>

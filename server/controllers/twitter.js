@@ -63,8 +63,8 @@ module.exports = {
     const twit = new Twit({
       consumer_key: CONFIG.CONSUMER_KEY,
       consumer_secret: CONFIG.CONSUMER_SECRET,
-      access_token: twitConfig.tokens[profile.id_str],
-      access_token_secret: twitConfig.secrets[profile.id_str]
+      access_token: twitConfig.tokens[req.user.id_str],
+      access_token_secret: twitConfig.secrets[req.user.id_str]
     });
     twit.post('favorites/create', { id: req.params.id }, function(err, data, response) {
       if (!err) {
@@ -81,8 +81,8 @@ module.exports = {
     const twit = new Twit({
       consumer_key: CONFIG.CONSUMER_KEY,
       consumer_secret: CONFIG.CONSUMER_SECRET,
-      access_token: twitConfig.tokens[profile.id_str],
-      access_token_secret: twitConfig.secrets[profile.id_str]
+      access_token: twitConfig.tokens[req.user.id_str],
+      access_token_secret: twitConfig.secrets[req.user.id_str]
     });
     twit.post('favorites/destroy', { id: req.params.id }, function(err, data, response) {
       if (!err) {
@@ -99,8 +99,8 @@ module.exports = {
     const twit = new Twit({
       consumer_key: CONFIG.CONSUMER_KEY,
       consumer_secret: CONFIG.CONSUMER_SECRET,
-      access_token: twitConfig.tokens[profile.id_str],
-      access_token_secret: twitConfig.secrets[profile.id_str]
+      access_token: twitConfig.tokens[req.user.id_str],
+      access_token_secret: twitConfig.secrets[req.user.id_str]
     });
     twit.get('statuses/home_timeline', {count: 50, inclue_rts: true}, function(err, data, response) {
       if (err) {
@@ -117,8 +117,8 @@ module.exports = {
     const twit = new Twit({
       consumer_key: CONFIG.CONSUMER_KEY,
       consumer_secret: CONFIG.CONSUMER_SECRET,
-      access_token: twitConfig.tokens[profile.id_str],
-      access_token_secret: twitConfig.secrets[profile.id_str]
+      access_token: twitConfig.tokens[req.user.id_str],
+      access_token_secret: twitConfig.secrets[req.user.id_str]
     });
     twit.post('statuses/retweet/:id', { id: req.params.id }, function (err, data, response) {
       if (!err) {

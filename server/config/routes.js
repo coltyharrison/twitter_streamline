@@ -9,9 +9,9 @@ module.exports = (app) => {
     //auth callback
     app.get('/auth/twitter/callback',
       passport.authenticate('twitter', {
-        failureRedirect: 'http://127.0.0.1:3000/'
+        failureRedirect: '/'
       }), (req, res) => {
-        res.redirect('http://127.0.0.1:3000/');
+        res.redirect('/');
       });
 
       // route to check if user is logged in
