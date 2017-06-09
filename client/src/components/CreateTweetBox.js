@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Form, Button, TextArea, Modal, Header } from 'semantic-ui-react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001';
-
 
 // component for rendering a submitting a new tweet
 
@@ -19,7 +17,7 @@ class CreateTweetBox extends Component {
   handleSubmit(e) {
     console.log('function');
     e.preventDefault();
-    axios.post(API_URL + '/createTweet', {value: this.state.value})
+    axios.post('/createTweet', {value: this.state.value})
     .then(() => {
       this.setState({ value: '' })
     })

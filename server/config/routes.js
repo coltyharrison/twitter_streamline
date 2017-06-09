@@ -1,6 +1,5 @@
 const twitter = require('./../controllers/twitter.js')
-      passport = require('passport'),
-      REACT_URL = 'http://localhost:3000/';
+      passport = require('passport');
 
 
 module.exports = (app) => {
@@ -10,9 +9,9 @@ module.exports = (app) => {
     //auth callback
     app.get('/auth/twitter/callback',
       passport.authenticate('twitter', {
-        failureRedirect: REACT_URL
+        failureRedirect: 'http://127.0.0.1:3000/'
       }), (req, res) => {
-        res.redirect(REACT_URL);
+        res.redirect('http://127.0.0.1:3000/');
       });
 
       // route to check if user is logged in

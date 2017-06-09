@@ -8,7 +8,7 @@ class Login extends Component {
     return (
       <div className="login_window">
         <h1>Welcome!</h1>
-        <a href="http://localhost:3001/auth/twitter">
+        <a href="/auth/twitter">
           <Button color='twitter'>
             <Icon name='twitter' /> Log In With Twitter
           </Button>

@@ -14,9 +14,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 passport.use(new TwitterStrategy({
     consumerKey: CONFIG.CONSUMER_KEY,
     consumerSecret: CONFIG.CONSUMER_SECRET,
-    callbackURL: "http://localhost:3001/auth/twitter/callback"
+    callbackURL: CONFIG.APP_URL + "/auth/twitter/callback"
   }, function(token, tokenSecret, profile, cb) {
-    twitter.addKeysAndStartStream(token, tokenSecret);
+    twitter.addKeysAndStartStream(token, tokenSecret, profile._json);
     return cb(null, profile);
   }
 ));
@@ -31,7 +31,7 @@ passport.deserializeUser(function(obj, cb) {
 
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 app.use(bp.json());
 app.use(session({
     secret: CONFIG.SESSION_SECRET,
